@@ -6,6 +6,11 @@ exports.handler = async (context, event, callback) => {
   const client = context.getTwilioClient();
   const code = event.TalkCode;
   const talk = data.getTalkByCode(code);
+
+  if (!talk) {
+    return callback(new Error(`Talk not found for code: ${code}`));
+  }
+
   const speakerCallSids = [];
   console.log("Calling speakers...");
   let domainName = context.DOMAIN_NAME;
