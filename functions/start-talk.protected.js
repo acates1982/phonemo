@@ -13,9 +13,9 @@ exports.handler = async (context, event, callback) => {
 
   const speakerCallSids = [];
   console.log("Calling speakers...");
-  let domainName = context.DOMAIN_NAME;
+  let domainName = "phonemo-1835-dev.twil.io"
   if (domainName.startsWith("localhost")) {
-    domainName = "https://phonemo.onrender.com/";
+    domainName = "phonemo-1835-dev.twil.io";
   }
   for (const speaker of talk.speakers) {
     const participant = await client
